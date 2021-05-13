@@ -1,0 +1,43 @@
+{
+    "name": "ts-express-postgresql",
+    "version": "1.0.0",
+    "description": "Just another Boilerplate for TS, Express & PostgreSQL",
+    "main": "source/server.ts",
+    "scripts": {
+        "dev": "nodemon source/server.ts",
+        "build": "rm -rf build/ && tsc",
+        "preety": "prettier --write source/",
+        "clean": "rm -rf build"
+    },
+    "author": "Bivek Singh",
+    "license": "ISC",
+    "dependencies": {
+        "chalk": "^3.0.0",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "morgan": "^1.10.0"
+    },
+    "devDependencies": {
+        "@types/dotenv": "^8.2.0",
+        "@types/express": "^4.17.8",
+        "@types/morgan": "^1.9.2",
+        "nodemon": "^2.0.7",
+        "prettier": "^2.3.0",
+        "ts-node": "^9.1.1",
+        "typescript": "^4.2.4"
+    },
+    "keywords": [
+        "TS",
+        "Express",
+        "PostgreSQL",
+        "Jest"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/beevk/ts-node-postgres.git"
+    },
+    "bugs": {
+        "url": "https://github.com/beevk/ts-express-postgres/issues"
+    },
+    "homepage": "https://github.com/beevk/ts-express-postgres#readme"
+}
