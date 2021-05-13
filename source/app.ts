@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 app.use('/v1', (req, res) => res.send('Hello World'));
 
 /** Error handling - 404 */
-app.use((req, res, next) => {
+app.use((req, res) => {
     const error = new Error('Not found');
 
     res.status(404).json({

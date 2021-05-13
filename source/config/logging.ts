@@ -2,19 +2,19 @@ import morgan from 'morgan';
 import chalk from 'chalk';
 
 // Logs all the incoming request and response info to console
-const morganMiddleware = morgan(function (tokens, req, res) {
+const morganMiddleware = morgan((tokens, req, res) => {
     // You can convert it to any timezone using JS
     const dateTime = tokens.date(req, res, 'iso');
     return [
         '\n',
-        chalk.hex('#f78fb3').bold('@ ' + dateTime),
+        chalk.hex('#f78fb3').bold(`@ ${dateTime}`),
         chalk.hex('#fffa65').bold(tokens['remote-addr'](req, res)),
         '\n',
         chalk.hex('#34ace0').bold(tokens.method(req, res)),
         chalk.hex('#ff5252').bold(tokens.url(req, res)),
         '\n',
         chalk.hex('#ffb142').bold(tokens.status(req, res)),
-        chalk.hex('#2ed573').bold(tokens['response-time'](req, res) + ' ms'),
+        chalk.hex('#2ed573').bold(`${tokens['response-time'](req, res)} ms`),
         '\n',
         '\n'
     ].join(' ');

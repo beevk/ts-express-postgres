@@ -3,11 +3,23 @@
     "version": "1.0.0",
     "description": "Just another Boilerplate for TS, Express & PostgreSQL",
     "main": "source/server.ts",
+    "lint-staged": {
+        "*.{js,ts}": [
+            "eslint --fix",
+            "git add"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
     "scripts": {
         "dev": "nodemon source/server.ts",
         "build": "rm -rf build/ && tsc",
-        "preety": "prettier --write source/",
-        "clean": "rm -rf build"
+        "clean": "rm -rf build",
+        "lint": "eslint . --ext .ts,.js --quiet --fix"
     },
     "author": "Bivek Singh",
     "license": "ISC",
@@ -18,9 +30,20 @@
         "morgan": "^1.10.0"
     },
     "devDependencies": {
+        "@commitlint/cli": "^12.1.4",
+        "@commitlint/config-conventional": "^12.1.4",
         "@types/dotenv": "^8.2.0",
         "@types/express": "^4.17.8",
         "@types/morgan": "^1.9.2",
+        "@typescript-eslint/eslint-plugin": "^4.23.0",
+        "@typescript-eslint/parser": "^4.23.0",
+        "eslint": "^7.26.0",
+        "eslint-config-airbnb": "^18.2.1",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-prettier": "^3.4.0",
+        "husky": "^6.0.0",
+        "lint-staged": "^11.0.0",
         "nodemon": "^2.0.7",
         "prettier": "^2.3.0",
         "ts-node": "^9.1.1",
@@ -34,7 +57,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/beevk/ts-node-postgres.git"
+        "url": "git+https://github.com/beevk/ts-express-postgres.git"
     },
     "bugs": {
         "url": "https://github.com/beevk/ts-express-postgres/issues"
