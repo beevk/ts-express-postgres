@@ -1,8 +1,12 @@
 import express from 'express';
+import helmet from 'helmet';
 
 import morganMiddleware from './config/logging';
 
 const app = express();
+
+// use HelmetJS middleware
+app.use(helmet());
 
 /** Log the request */
 app.use(morganMiddleware);
