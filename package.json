@@ -5,8 +5,7 @@
     "main": "source/server.ts",
     "lint-staged": {
         "*.{js,ts}": [
-            "eslint --fix",
-            "git add"
+            "eslint --fix"
         ]
     },
     "husky": {
