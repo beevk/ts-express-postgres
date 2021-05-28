@@ -2,9 +2,10 @@ import express, { Express, NextFunction, Request, Response } from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 
-import morganMiddleware from '../middleware/logging';
+import morganMiddleware from '../utils/logging';
+import router from '../route';
 
-export const ConfigureApp = async (app: Express) => {
+export const ConfigureApp = (app: Express) => {
     if (!app) {
         return;
     }
@@ -24,29 +25,9 @@ export const ConfigureApp = async (app: Express) => {
     // Enable Cross Origin Resource Sharing to all origins by default
     app.use(cors());
 
-    app.head('/status', (_req: Request, res: Response) => {
-        return res.status(200).end();
-    });
-
-    app.get('/status', (_req: Request, res: Response) => {
-        return res.status(200).json({ data: 'Ok' });
-    });
-
-    // Keep on adding route like this
-    app.use('/v1', (_req: Request, res: Response) => {
-        return res.status(200).json({ message: 'Coming Soon' });
-    });
-
-    /** Error handling - 404 */
-    app.use((_req: Request, res: Response, _next: NextFunction) => {
-        const error = new Error('Path Not found');
-        return res.status(404).json({
-            message: error.message
-        });
-    });
+    app.use('/', router);
 
     /** Global catch block - 500 */
-
     const ErrorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
         return res.status(500).json({
             message: err.message
