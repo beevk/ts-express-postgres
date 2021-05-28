@@ -2,7 +2,7 @@ import http from 'http';
 
 import app from './app';
 import config from './config/index';
-import { logInfo } from './middleware/logging';
+import { logInfo } from './utils/logging';
 
 const { server } = config;
 const { port, hostname } = server;

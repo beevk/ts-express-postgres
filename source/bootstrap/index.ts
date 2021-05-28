@@ -2,7 +2,7 @@ import express, { Express, NextFunction, Request, Response } from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 
-import morganMiddleware from '../middleware/logging';
+import morganMiddleware from '../utils/logging';
 import router from '../route';
 
 export const ConfigureApp = (app: Express) => {

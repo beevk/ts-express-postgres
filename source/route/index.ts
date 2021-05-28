@@ -15,7 +15,7 @@ router.get('/status', (_req, res) => {
 // Keep on adding route like this
 router.use('/v1', v1Routes);
 
-/** Error handling - 404 */
+/** Error - 404 */
 router.use((_req, res, _next) => {
     const error = new Error('Path Not found');
     return res.status(404).json({
