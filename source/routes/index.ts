@@ -12,7 +12,7 @@ router.get('/status', (_req, res) => {
     return res.status(200).json({ data: 'Ok' });
 });
 
-// Keep on adding route like this
+// Keep on adding routes like this
 router.use('/v1', v1Routes);
 
 /** Error - 404 */

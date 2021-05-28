@@ -3,7 +3,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 
 import morganMiddleware from '../utils/logging';
-import router from '../route';
+import router from '../routes';
 
 export const ConfigureApp = (app: Express) => {
     if (!app) {
