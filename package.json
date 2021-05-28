@@ -16,6 +16,7 @@
     },
     "scripts": {
         "dev": "nodemon source/server.ts",
+        "start": "node build/server.js",
         "build": "rm -rf build/ && tsc",
         "clean": "rm -rf build",
         "lint": "eslint . --ext .ts,.js --quiet --fix"
