@@ -1,10 +1,10 @@
 import express from 'express';
 import { ConfigureApp } from './bootstrap';
 
-export default () => {
+export default async () => {
     const app = express();
 
-    ConfigureApp(app);
+    await ConfigureApp(app);
 
     return app;
 };
