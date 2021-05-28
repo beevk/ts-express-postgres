@@ -1,4 +1,5 @@
 import express from 'express';
+import 'reflect-metadata';
 import { ConfigureApp } from './bootstrap';
 
 export default async () => {
