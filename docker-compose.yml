@@ -1,0 +1,27 @@
+version: '3.3'
+services:
+  database: # can use this DB for local development
+    image: postgres
+    restart: always
+    volumes:
+      - ./mongo-volume:/var/lib/postgresql/data # To retain data
+    environment:
+      POSTGRES_USER: "${DB_NAME}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"
+    ports:
+      - "5433:5432"
+
+  adminer: # For GUI of DB
+    image: adminer
+    depends_on:
+      - database
+    ports:
+      - "8080:8080"
+# You can also add another service here to build image for our app
+# Needs dockerfile at root directory for this to work
+#  app:
+#    build: .
+#    depends_on:
+#      - database
+#    ports:
+#      - "${SERVER_PORT}:${SERVER_PORT}"
