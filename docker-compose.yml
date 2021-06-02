@@ -4,10 +4,11 @@ services:
     image: postgres
     restart: always
     volumes:
-      - ./mongo-volume:/var/lib/postgresql/data # To retain data
+      - ./db-data:/var/lib/postgresql/data/ # For data persistence
     environment:
-      POSTGRES_USER: "${DB_NAME}"
+      POSTGRES_USER: "${DB_USERNAME}"
       POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      POSTGRES_DB: "${DB_NAME}"
     ports:
       - "5433:5432"
 

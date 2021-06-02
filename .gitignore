@@ -1,9 +1,8 @@
-.env
 .idea
 node_modules/**/*
 build/**/*
 certs/**/*
-mongo-volume
+db-data/**/*
 
 *.jks
 *.p8
@@ -11,5 +10,3 @@ mongo-volume
 *.key
 *.mobileprovision
 *.orig.*
-
-package-lock.json

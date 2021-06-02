@@ -1,25 +1,27 @@
-import { Express, NextFunction, Request, Response } from 'express';
+import { Express, Request, Response } from 'express';
 
 import morganMiddleware, { logError } from '../utils/logging';
 import router from '../routes';
 import configureExpress from './express';
 
-export const ConfigureApp = (app: Express) => {
+export default async (app: Express): Promise<void> => {
     if (!app) {
         return;
     }
 
     // Connect to DB first
 
+    // Add express middlewares
     configureExpress(app);
 
-    /** Log each request */
+    /** Log each incoming request */
     app.use(morganMiddleware);
 
+    // Routes are served from here
     app.use('/', router);
 
     /** Global catch block - 500 */
-    const ErrorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
+    const ErrorHandler = (err: Error, _req: Request, res: Response) => {
         logError(`Error 500: ${err}`);
         return res.status(500).json({
             message: err.message

@@ -1,6 +1,6 @@
 node_modules
 build
 npm-debug.log
-mongo-volume
+db-data
 
 .idea

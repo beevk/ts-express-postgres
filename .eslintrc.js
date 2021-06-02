@@ -30,7 +30,9 @@ module.exports = {
                 js: 'never',
                 ts: 'never'
             }
-        ]
+        ],
+        'no-console': 0,
+        'class-methods-use-this': 'warn'
         // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
         // e.g. "@typescript-eslint/explicit-function-return-type": "off",
     }

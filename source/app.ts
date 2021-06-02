@@ -1,11 +1,11 @@
-import express from 'express';
+import express, { Express } from 'express';
 import 'reflect-metadata';
-import { ConfigureApp } from './bootstrap';
+import configureApp from './bootstrap';
 
-export default async () => {
+export default async (): Promise<Express> => {
     const app = express();
 
-    await ConfigureApp(app);
+    await configureApp(app);
 
     return app;
 };
