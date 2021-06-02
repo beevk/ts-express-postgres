@@ -1,9 +1,8 @@
-import express, { Express, NextFunction, Request, Response } from 'express';
-import helmet from 'helmet';
-import cors from 'cors';
+import { Express, NextFunction, Request, Response } from 'express';
 
-import morganMiddleware from '../utils/logging';
+import morganMiddleware, { logError } from '../utils/logging';
 import router from '../routes';
+import configureExpress from './express';
 
 export const ConfigureApp = (app: Express) => {
     if (!app) {
@@ -12,23 +11,16 @@ export const ConfigureApp = (app: Express) => {
 
     // Connect to DB first
 
-    // use HelmetJS middleware
-    app.use(helmet());
+    configureExpress(app);
 
     /** Log each request */
     app.use(morganMiddleware);
-
-    /** Parse the body of all request */
-    app.use(express.urlencoded({ extended: true }));
-    app.use(express.json());
-
-    // Enable Cross Origin Resource Sharing to all origins by default
-    app.use(cors());
 
     app.use('/', router);
 
     /** Global catch block - 500 */
     const ErrorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
+        logError(`Error 500: ${err}`);
         return res.status(500).json({
             message: err.message
         });
