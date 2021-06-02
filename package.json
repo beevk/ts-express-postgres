@@ -19,7 +19,8 @@
         "start": "node build/server.js",
         "build": "rm -rf build/ && tsc",
         "clean": "rm -rf build",
-        "lint": "eslint . --ext .ts,.js --quiet --fix"
+        "lint": "eslint . --ext .ts,.js",
+        "lint:fix": "eslint . --ext .ts,.js --quiet --fix"
     },
     "author": "Bivek Singh",
     "license": "ISC",
@@ -30,8 +31,11 @@
         "express": "^4.17.1",
         "helmet": "^4.6.0",
         "morgan": "^1.10.0",
+        "pg": "^8.6.0",
         "reflect-metadata": "^0.1.13",
-        "typedi": "^0.10.0"
+        "typedi": "^0.10.0",
+        "typeorm": "^0.2.33",
+        "typeorm-typedi-extensions": "^0.4.1"
     },
     "devDependencies": {
         "@commitlint/cli": "^12.1.4",

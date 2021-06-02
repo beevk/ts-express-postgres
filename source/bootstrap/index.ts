@@ -3,13 +3,15 @@ import { Express, Request, Response } from 'express';
 import morganMiddleware, { logError } from '../utils/logging';
 import router from '../routes';
 import configureExpress from './express';
+import configureDB from './configureDB';
 
 export default async (app: Express): Promise<void> => {
     if (!app) {
         return;
     }
 
-    // Connect to DB first
+    // Connect to DB
+    await configureDB();
 
     // Add express middlewares
     configureExpress(app);
