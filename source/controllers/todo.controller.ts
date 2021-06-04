@@ -1,7 +1,6 @@
 import { RequestHandler } from 'express';
 import { Container } from 'typedi';
 import ToDoService from '../services/todo.service';
-// import { ToDoCreateDto } from '../../dto/ToDoDto';
 
 const getAll: RequestHandler = async (_req, res) => {
     const serviceInstance = Container.get(ToDoService);
@@ -18,7 +17,7 @@ const getOne: RequestHandler = async (req, res, next) => {
         return res.status(200).json({ data });
     } catch (e) {
         const error = new Error('Not Found');
-        next(error);
+        return next(error);
     }
 };
 
@@ -30,9 +29,15 @@ const create: RequestHandler = async (req, res) => {
 };
 
 const updateOne: RequestHandler = async (req, res) => {
-    return res.status(200).json({ data: 'OK' });
+    const { params } = req;
+    const { id } = params;
+    return res.status(200).json({ data: `Updated ${id}` });
 };
 
-const deleteOne: RequestHandler = async (req, res) => {};
+const deleteOne: RequestHandler = async (req, res) => {
+    const { params } = req;
+    const { id } = params;
+    return res.status(200).json({ data: `Deleted ${id}` });
+};
 
 export { getAll, getOne, create, updateOne, deleteOne };

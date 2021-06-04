@@ -1,11 +1,11 @@
 import { Service } from 'typedi';
 import { InjectRepository } from 'typeorm-typedi-extensions';
 
+import ToDo from '../entities/ToDo.entity';
+import ToDoRepository from '../repository/todo.repository';
 import { IToDo } from '../interfaces/todo.interface';
-import { ToDo } from '../entities/ToDo.entity';
-import { ToDoRepository } from '../repository/todo.repository';
-import { ToDoCreateDto } from '../dto/ToDo.dto';
 
+// Write another service class for basic CRUD operation that these service classes can extend
 @Service()
 export default class SampleInjectedService {
     constructor(
@@ -13,7 +13,7 @@ export default class SampleInjectedService {
         private todoRepo: ToDoRepository
     ) {}
 
-    async getAll() {
+    async getAll(): Promise<IToDo[]> {
         try {
             return await this.todoRepo.find({});
         } catch (e) {
@@ -21,11 +21,16 @@ export default class SampleInjectedService {
         }
     }
 
-    async getOne(id: string) {
-        return this.todoRepo.findOne({ id });
+    async getOne(id: string): Promise<IToDo> {
+        const data = await this.todoRepo.findOne({ id });
+        if (!data) {
+            // Write new error handler for 404
+            throw new Error('Not Found');
+        }
+        return data;
     }
 
-    create(todoData: ToDoCreateDto) {
+    create(todoData: IToDo): Promise<IToDo> {
         // Wrap it in try catch and throw exception
         return this.todoRepo.save(todoData);
     }

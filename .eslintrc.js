@@ -32,7 +32,14 @@ module.exports = {
             }
         ],
         'no-console': 0,
-        'class-methods-use-this': 'warn'
+        'class-methods-use-this': 'warn',
+        'object-curly-newline': [
+            'warn',
+            {
+                ImportDeclaration: { multiline: true, minProperties: 5 },
+                ExportDeclaration: { multiline: true, minProperties: 5 }
+            }
+        ]
         // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
         // e.g. "@typescript-eslint/explicit-function-return-type": "off",
     }

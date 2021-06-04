@@ -8,6 +8,6 @@ export default async (): Promise<Connection | void> => {
         logInfo('Initializing DB connection...');
         return await createConnection();
     } catch (err) {
-        logError(`Connecting to DB failed: ${err}`);
+        return logError(`Connecting to DB failed: ${err}`);
     }
 };
