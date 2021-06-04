@@ -1,13 +1,9 @@
 import express from 'express';
-import { Container } from 'typedi';
-import SampleInjectedService from '../../services/sample.service';
+import todoRoutes from './todo.router';
 
 const router = express.Router();
 
-router.get('/ping', (_req, res) => {
-    const serviceInstance = Container.get(SampleInjectedService);
-    serviceInstance.printMessage();
-    return res.status(200).json({ data: 'pong' });
-});
+// all ${baseURL}/v1/todo goes here
+router.use('/todo', todoRoutes);
 
 export default router;

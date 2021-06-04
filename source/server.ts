@@ -12,10 +12,10 @@ const startServer = async () => {
     const httpServer = http.createServer(appInstance);
     httpServer.listen(port, () =>
         logInfo(`
-        ###############################################
-            Server running at PORT: ${port}
-        ###############################################
-    `)
+            ###############################################
+                Server running at PORT: ${port}
+            ###############################################
+        `)
     );
 };
 

@@ -12,12 +12,12 @@ export default {
     database,
     synchronize: sync,
     logging,
-    entities: ['source/entity/**/*.ts'],
-    migrations: ['source/migration/**/*.ts'],
-    subscribers: ['source/subscriber/**/*.ts'],
+    entities: ['source/entities/**/*.ts'],
+    migrations: ['source/migrations/**/*.ts'],
+    subscribers: ['source/subscribers/**/*.ts'],
     cli: {
-        entitiesDir: 'source/entity',
-        migrationsDir: 'source/migration',
-        subscribersDir: 'source/subscriber'
+        entitiesDir: 'source/entities',
+        migrationsDir: 'source/migrations',
+        subscribersDir: 'source/subscribers'
     }
 };
