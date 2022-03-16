@@ -2,10 +2,10 @@ import express, { Express, NextFunction, Request, Response } from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 
-import morganMiddleware from '../utils/logging';
+import morganMiddleware, { logError } from '../utils/logging';
 import router from '../routes';
 
-export const ConfigureApp = (app: Express) => {
+const ConfigureApp = (app: Express): void => {
     if (!app) {
         return;
     }
@@ -28,7 +28,8 @@ export const ConfigureApp = (app: Express) => {
     app.use('/', router);
 
     /** Global catch block - 500 */
-    const ErrorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
+    const ErrorHandler = (err: Error, req: Request, res: Response, _: NextFunction) => {
+        logError(err.message);
         return res.status(500).json({
             message: err.message
         });
@@ -36,3 +37,5 @@ export const ConfigureApp = (app: Express) => {
     app.use(ErrorHandler);
     // Don't add any middleware below this
 };
+
+export default ConfigureApp;
