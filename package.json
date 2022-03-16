@@ -2,7 +2,7 @@
     "name": "ts-express-postgresql",
     "version": "1.0.0",
     "description": "Just another Boilerplate for TS, Express & PostgreSQL",
-    "main": "source/server.ts",
+    "main": "src/server.ts",
     "lint-staged": {
         "*.{js,ts}": [
             "eslint --fix"
@@ -15,7 +15,8 @@
         }
     },
     "scripts": {
-        "dev": "nodemon source/server.ts",
+        "dev": "nodemon src/server.ts",
+        "start": "node build/server.js",
         "build": "rm -rf build/ && tsc",
         "clean": "rm -rf build",
         "lint": "eslint . --ext .ts,.js --quiet --fix"
@@ -23,12 +24,14 @@
     "author": "Bivek Singh",
     "license": "ISC",
     "dependencies": {
-        "chalk": "^3.0.0",
+        "chalk": "^4.1.1",
         "cors": "^2.8.5",
-        "dotenv": "^8.2.0",
+        "dotenv": "^10.0.0",
         "express": "^4.17.1",
         "helmet": "^4.6.0",
-        "morgan": "^1.10.0"
+        "morgan": "^1.10.0",
+        "reflect-metadata": "^0.1.13",
+        "typedi": "^0.10.0"
     },
     "devDependencies": {
         "@commitlint/cli": "^12.1.4",
@@ -49,7 +52,7 @@
         "lint-staged": "^11.0.0",
         "nodemon": "^2.0.7",
         "prettier": "^2.3.0",
-        "ts-node": "^9.1.1",
+        "ts-node": "^10.0.0",
         "typescript": "^4.2.4"
     },
     "keywords": [
