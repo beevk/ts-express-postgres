@@ -20,8 +20,8 @@ const morganMiddleware = morgan((tokens, req, res) => {
     ].join(' ');
 });
 
-export const logInfo = (message: string): any => console.info(chalk.hex('#34ACE0').bold(message));
-export const logWarning = (message: string): any => console.warn(chalk.hex('#ff9966').bold(message));
-export const logError = (message: string): any => console.error(chalk.hex('#ff5252').bold(message));
+export const logInfo = (message: string): void => console.info(chalk.hex('#34ACE0').bold(message));
+export const logWarning = (message: string): void => console.warn(chalk.hex('#ff9966').bold(message));
+export const logError = (message: string): void => console.error(chalk.hex('#ff5252').bold(message));
 
 export default morganMiddleware;
