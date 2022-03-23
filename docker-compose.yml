@@ -1,10 +1,11 @@
 version: '3.3'
 services:
-  database: # can use this DB for local development
-    image: postgres
+  database:
+    image: postgres:alpine
+    container_name: postgres
     restart: always
     volumes:
-      - ./db-data:/var/lib/postgresql/data/ # For data persistence
+      - ./db-data:/var/lib/postgresql/data/
     environment:
       POSTGRES_USER: "${DB_USERNAME}"
       POSTGRES_PASSWORD: "${DB_PASSWORD}"
@@ -12,17 +13,10 @@ services:
     ports:
       - "5433:5432"
 
-  adminer: # For GUI of DB
+  adminer:
     image: adminer
+    container_name: adminer
     depends_on:
       - database
     ports:
       - "8080:8080"
-# You can also add another service here to build image for our app
-# Needs dockerfile at root directory for this to work
-#  app:
-#    build: .
-#    depends_on:
-#      - database
-#    ports:
-#      - "${SERVER_PORT}:${SERVER_PORT}"

@@ -2,7 +2,7 @@
     "name": "ts-express-postgresql",
     "version": "1.0.0",
     "description": "Just another Boilerplate for TS, Express & PostgreSQL",
-    "main": "source/server.ts",
+    "main": "src/server.ts",
     "lint-staged": {
         "*.{js,ts}": [
             "eslint --fix"
@@ -15,12 +15,17 @@
         }
     },
     "scripts": {
-        "dev": "nodemon source/server.ts",
+        "dev": "docker-compose up -d && nodemon src/server.ts",
         "start": "node build/server.js",
         "build": "rm -rf build/ && tsc",
         "clean": "rm -rf build",
         "lint": "eslint . --ext .ts,.js",
-        "lint:fix": "eslint . --ext .ts,.js --quiet --fix"
+        "lint:fix": "eslint . --ext .ts,.js --quiet --fix",
+        "migration:create": "ts-node --transpile-only ./node_modules/typeorm/cli.js migration:create",
+        "migration:generate": "ts-node --transpile-only ./node_modules/typeorm/cli.js migration:generate",
+        "migration:run": "ts-node --transpile-only ./node_modules/typeorm/cli.js migration:run",
+        "migration:show": "ts-node --transpile-only ./node_modules/typeorm/cli.js migration:show",
+        "migration:revert": "ts-node --transpile-only ./node_modules/typeorm/cli.js migration:revert"
     },
     "author": "Bivek Singh",
     "license": "ISC",

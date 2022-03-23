@@ -1,11 +1,11 @@
-import { Express, Request, Response } from 'express';
+import { Application, Request, Response } from 'express';
 
 import morganMiddleware, { logError } from '../utils/logging';
 import router from '../routes';
 import configureExpress from './express';
 import configureDB from './configureDB';
 
-export default async (app: Express): Promise<void> => {
+export default async (app: Application): Promise<void> => {
     if (!app) {
         return;
     }

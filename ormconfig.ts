@@ -1,4 +1,4 @@
-import config from './source/config';
+import config from './src/config';
 
 const { db } = config;
 const { type, host, port, username, password, database, sync, logging } = db;
@@ -12,12 +12,12 @@ export default {
     database,
     synchronize: sync,
     logging,
-    entities: ['source/entities/**/*.ts'],
-    migrations: ['source/migrations/**/*.ts'],
-    subscribers: ['source/subscribers/**/*.ts'],
+    entities: ['src/entities/**/*.ts', './entities/**/*.js'],
+    migrations: ['src/migrations/**/*.ts', './migrations/**/*.js'],
+    subscribers: ['src/subscribers/**/*.ts', './subscribers/**/*.js'],
     cli: {
-        entitiesDir: 'source/entities',
-        migrationsDir: 'source/migrations',
-        subscribersDir: 'source/subscribers'
+        entitiesDir: 'src/entities',
+        migrationsDir: 'src/migrations',
+        subscribersDir: 'src/subscribers'
     }
 };

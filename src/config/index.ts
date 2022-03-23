@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 
+// Read different config files based on environment (default: .env)
 dotenv.config();
 
 const SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || 'localhost';
@@ -15,9 +16,9 @@ const DB_HOSTNAME = process.env.DB_HOSTNAME || 'localhost';
 const DB_PORT = process.env.DB_PORT || 5432;
 const DB_USERNAME = process.env.DB_USERNAME || 'postgres';
 const DB_PASSWORD = process.env.DB_PASSWORD || 'password';
-const DB_NAME = process.env.DB_NAME || 'postgres';
-const DB_SYNC = process.env.DB_SYNC || true;
-const DB_LOGGING = process.env.DB_LOGGING || true;
+const DB_NAME = process.env.DB_NAME || 'todo';
+const DB_SYNC = process.env.DB_SYNC || false;
+const DB_LOGGING = process.env.DB_LOGGING || false;
 
 const DB = {
     type: DB_TYPE,

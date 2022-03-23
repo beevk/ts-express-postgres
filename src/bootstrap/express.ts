@@ -1,8 +1,8 @@
-import express, { Express } from 'express';
+import express, { Application } from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 
-export default (app: Express): void => {
+export default (app: Application): void => {
     if (!app) {
         return;
     }
