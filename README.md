@@ -26,11 +26,11 @@ A ready-to-use boilerplate for REST API Development with Node.js, Express, TypeS
 - [x] **Security**: set security HTTP headers using [helmet](https://helmetjs.github.io)
 - [x] **Logging**: using [morgan](https://github.com/expressjs/morgan) and [chalk]()
 - [ ] **SQL database**: [PostgreSQL](https://www.postgresql.org/) with [Prisma](https://prisma.io)
-- [ ] **Validation**: request data validation using [] [Joi](https://github.com/hapijs/joi)
-- [ ] **Testing**: unit and integration tests using [Jest](https://jestjs.io) and [SuperTest]()
+- [ ] **Validation**: request data validation using [Zod](https://zod.dev)
+- [ ] **Testing**: unit and integration tests using [Jest](https://jestjs.io) and [SuperTest](https://github.com/ladjs/supertest#readme)
 - [ ] **Error handling**: centralized error handling mechanism
 - [ ] **API documentation**: with [swagger-jsdoc](https://github.com/Surnet/swagger-jsdoc) and [swagger-ui-express](https://github.com/scottie1984/swagger-ui-express)
-- [ ] **Sanitizing**: sanitize request data against xss and query injection
+- [ ] **Sanitizing**: Sanitize request data against XSS and query injection
 - [ ] **Compression**: gzip compression with [compression](https://github.com/expressjs/compression)
 - [ ] **CI / CD**: continuous integration and deployment with [Github Action]()
 - [ ] **Docker support**
@@ -61,9 +61,10 @@ This boilerplate uses the following libraries and tools:
 #### ToDos
 - [x] Prettier with EsLint
 - [ ] Setup test env.
-- [ ] Sentry for error logs
-- [ ] DB - Local with docker compose
+- [ ] Sentry or Datadog for error logs
+- [ ] Prisma & Database setup
 - [ ] DI
+- [ ] Zod
 - [ ] Docker
 - [ ] Github actions - CI / CD
 
