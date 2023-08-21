@@ -25,8 +25,8 @@ A ready-to-use boilerplate for REST API Development with Node.js, Express, TypeS
 - [x] **CORS**: Cross-Origin Resource-Sharing enabled using [cors](https://github.com/expressjs/cors)
 - [x] **Security**: set security HTTP headers using [helmet](https://helmetjs.github.io)
 - [x] **Logging**: using [morgan](https://github.com/expressjs/morgan) and [chalk]()
-- [ ] **SQL database**: [PostgreSQL](https://www.postgresql.org/) with [TypeORM](https://typeorm.io/)
-- [ ] **Validation**: request data validation using [Joi](https://github.com/hapijs/joi)
+- [ ] **SQL database**: [PostgreSQL](https://www.postgresql.org/) with [Prisma](https://prisma.io)
+- [ ] **Validation**: request data validation using [] [Joi](https://github.com/hapijs/joi)
 - [ ] **Testing**: unit and integration tests using [Jest](https://jestjs.io) and [SuperTest]()
 - [ ] **Error handling**: centralized error handling mechanism
 - [ ] **API documentation**: with [swagger-jsdoc](https://github.com/Surnet/swagger-jsdoc) and [swagger-ui-express](https://github.com/scottie1984/swagger-ui-express)
@@ -44,7 +44,7 @@ This boilerplate uses the following libraries and tools:
 #### Core Dependencies
 - [Express.js](https://www.npmjs.com/package/express)
 - [PG](https://www.npmjs.com/package/pg)
-- [TypeORM](https://typeorm.io/)
+- [Prisma](https://prisma.io)
 - [dotEnv](https://www.npmjs.com/package/dotenv)
 - [Morgan](https://www.npmjs.com/package/morgan)
 
@@ -55,7 +55,6 @@ This boilerplate uses the following libraries and tools:
 - [Husky]()
 - [CommitLint]()
 - [nodemon]()
-- [nodemon]()
 - [jest]()
 - [supertest]()
 
@@ -63,7 +62,7 @@ This boilerplate uses the following libraries and tools:
 - [x] Prettier with EsLint
 - [ ] Setup test env.
 - [ ] Sentry for error logs
-- [ ] DB - Local with docker
+- [ ] DB - Local with docker compose
 - [ ] DI
 - [ ] Docker
 - [ ] Github actions - CI / CD
@@ -72,7 +71,7 @@ This boilerplate uses the following libraries and tools:
 ```bash
 .
 ├── .husky                      # Github hooks for husky
-├── build                       # Built, ready to serve app.
+├── build                       # Built, ready-to-serve app.
 ├── config                      # Root folder for configurations.
 │   └── index.ts                # App configurations.
 ├── node_modules                # Node Packages.
@@ -82,13 +81,13 @@ This boilerplate uses the following libraries and tools:
 │   │   └── db.config.ts        # Sets up DB
 │   ├── route                   # Folder for app routes.
 │   │   └── index.ts            # Root level routes
-│   ├── interface               # Folder for interface.
+│   ├── interface               # Folder for interfaces.
 │   │   └── user.interface.ts   # User interface
 │   ├── service                 # Folder for services.
 │   │   ├── index.ts            # Common place to export other services
 │   │   └── auth.service.ts     # Auth service layer
 │   └── middleware              # Folder to hold all middleware functions
-│       └── logging.ts          # Middleware for logging to console
+│       └── logging.ts          # Middleware for logging into console.
 ├── .dockerignore               # Tells docker which files to ignore.
 ├── .gitignore                  # Tells git which files to ignore.
 ├── .prettierignore             # Tells prettier which files to ignore
@@ -104,7 +103,7 @@ This boilerplate uses the following libraries and tools:
 ```
 
 ## Installation
-You can clone from this repository and use main branch.
+You can clone from this repository and use the main branch.
 
 ```bash
 $ git clone https://github.com/beevk/ts-express-postgres.git projectName
@@ -114,7 +113,7 @@ $ npm i
 
 ## Usage
 
-All commands defaults to development environment. You can set `NODE_ENV` to `production` or use the shortcuts below.
+All commands default to the development environment. You can set `NODE_ENV` to `production` or use the shortcuts below.
 
 ```bash
 # Running
